@@ -495,22 +495,22 @@
         <div class="output-section">
           <div class="output-row">
             <div class="output-item">
-              <div class="output-label">Predicted 1RM</div>
-              <div class="output-value"><span id="pred1rm">466</span> lbs</div>
+              <div class="output-label">Target Load</div>
+              <div class="output-value"><span id="targetLoad">400</span> lbs</div>
             </div>
             <div class="output-item">
-              <div class="output-label">Target %1RM</div>
-              <div class="output-value"><span id="targetPct">86.0</span>%</div>
+              <div class="output-label">Expected Velocity</div>
+              <div class="output-value"><span id="expectedVel">0.29</span> m/s</div>
             </div>
           </div>
           <div class="output-row">
             <div class="output-item">
-              <div class="output-label">Target Load</div>
-              <div class="output-value output-small"><span id="targetLoad">400</span> lbs</div>
+              <div class="output-label">Predicted 1RM</div>
+              <div class="output-value output-small"><span id="pred1rm">466</span> lbs</div>
             </div>
             <div class="output-item">
-              <div class="output-label">Expected Velocity</div>
-              <div class="output-value output-small"><span id="expectedVel">0.29</span> m/s</div>
+              <div class="output-label">Target %1RM</div>
+              <div class="output-value output-small"><span id="targetPct">86.0</span>%</div>
             </div>
           </div>
         </div>
@@ -1115,6 +1115,8 @@ async function seedIfEmpty() {
       updateCalculator();
     }
 
+    // Populate variants immediately so dropdown is ready before async init completes
+    updateVariants();
     init().catch(console.error);
   </script>
 </body>
