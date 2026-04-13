@@ -324,6 +324,8 @@
       border-radius: 8px;
       padding: 16px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      max-height: 400px;
+      overflow-y: auto;
     }
     .profile-card h3 {
       font-size: 14px;
@@ -479,7 +481,7 @@
 
         <div class="calc-row">
           <div class="form-group">
-            <label>Test Load (kg)</label>
+            <label>Test Load (lbs)</label>
             <input type="number" id="testLoad" step="5" value="420">
           </div>
           <div class="form-group">
@@ -494,7 +496,7 @@
           <div class="output-row">
             <div class="output-item">
               <div class="output-label">Predicted 1RM</div>
-              <div class="output-value"><span id="pred1rm">466</span> kg</div>
+              <div class="output-value"><span id="pred1rm">466</span> lbs</div>
             </div>
             <div class="output-item">
               <div class="output-label">Target %1RM</div>
@@ -504,7 +506,7 @@
           <div class="output-row">
             <div class="output-item">
               <div class="output-label">Target Load</div>
-              <div class="output-value output-small"><span id="targetLoad">400</span> kg</div>
+              <div class="output-value output-small"><span id="targetLoad">400</span> lbs</div>
             </div>
             <div class="output-item">
               <div class="output-label">Expected Velocity</div>
@@ -638,7 +640,7 @@
           <input type="number" id="entrySet" min="1" value="1">
         </div>
         <div class="form-group">
-          <label>Weight (kg)</label>
+          <label>Weight (lbs)</label>
           <input type="number" id="entryWeight" step="5">
         </div>
       </div>
@@ -969,7 +971,7 @@
         card.innerHTML = `
           <h3>${variant}</h3>
           <table class="profile-table">
-            ${pcts.filter((_, i) => i % 5 === 0).map(pct => `
+            ${pcts.map(pct => `
               <tr>
                 <td>${pct}%</td>
                 <td>${profile[pct].toFixed(2)} m/s</td>
