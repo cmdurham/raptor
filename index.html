@@ -793,7 +793,7 @@
       const profile = PROFILES_DATA[variant];
       const pcts = Object.keys(profile).map(k => parseInt(k));
       const vels = Object.values(profile);
-      return forecast(velocity, vels, pcts.map(p => p / 100));
+      return forecast(velocity, pcts.map(p => p / 100), vels);
     }
 
     function pctToVel(variant, pct) {
@@ -801,7 +801,7 @@
       const profile = PROFILES_DATA[variant];
       const pcts = Object.keys(profile).map(k => parseInt(k));
       const vels = Object.values(profile);
-      return forecast(pct, pcts.map(p => p / 100), vels);
+      return forecast(pct, vels, pcts.map(p => p / 100));
     }
 
     function getRiRPct(reps, rir) {
@@ -847,7 +847,7 @@
         targetPct = getRiRPct(reps, rir) || 0;
       }
 
-      const targetLoad = Math.floor(pred1rm * targetPct / 5) * 5;
+      const targetLoad = Math.round(pred1rm * targetPct / 5) * 5;
 
       let expectedVel;
       if (mode === 'Velocity') {
